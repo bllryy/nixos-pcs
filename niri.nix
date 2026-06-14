@@ -1,55 +1,41 @@
 { self, inputs, ... }: {
   flake.nixosModules.niri = { pkgs, lib, ... }: {
-    programs.niri = {
-      enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
-    };
+    programs.niri.enable = true;
 
-    # Niri needs these
     services.greetd = {
       enable = true;
       settings.default_session = {
-        command = "${pkgs.niri}/bin/niri-session";
-        user = "lily";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
+        user = "greeter";
       };
     };
 
     xdg.portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+      ];
       config.common.default = "*";
     };
 
     hardware.graphics.enable = true;
+
+    security.polkit.enable = true;
+    services.gnome.gnome-keyring.enable = true;
 
     services.pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
-  };
 
-  perSystem = { pkgs, lib, self', ... }: {
-    packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
-      inherit pkgs;
-      settings = {
-        spawn-at-startup = [
-          (lib.getExe self'.packages.myNoctalia)
-        ];
-
-        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
-
-        input.keyboard.xkb.layout = "us";
-
-        layout.gaps = 5;
-
-        binds = {
-          "Mod+Return".spawn-sh = lib.getExe pkgs.ghostty;
-          "Mod+Q".close-window = null;
-          "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
-        };
-      };
-    };
+    environment.systemPackages = with pkgs; [
+      waybar fuzzel swaybg swaylock mako
+      wl-clipboard grim slurp
+      xwayland-satellite
+    ];
   };
 }
