@@ -5,7 +5,7 @@
     modules = [
       inputs.niri.nixosModules.niri
       self.nixosModules.frameworkConfig
-      ./hardware-configuration.nix
+      ../../../hardware-configuration.nix
     ];
   };
 }
