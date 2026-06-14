@@ -2,13 +2,11 @@
   flake.nixosModules.niri = { pkgs, lib, ... }: {
     programs.niri.enable = true;
 
-    services.greetd = {
+    services.displayManager.sddm = {
       enable = true;
-      settings.default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
-        user = "greeter";
-      };
+      wayland.enable = true;
     };
+    services.displayManager.defaultSession = "niri"; 
 
     xdg.portal = {
       enable = true;
