@@ -1,6 +1,7 @@
 { self, inputs, ... }: {
   flake.nixosModules.common = { pkgs, lib, ... }: {
     imports = [
+      self.nixosModules.kde
       self.nixosModules.niri
     ];
 
@@ -31,7 +32,7 @@
       brightnessctl playerctl alacritty vesktop
       tree go signal-desktop pavucontrol btop claude-code nodejs cmake ungoogled-chromium tree prismlauncher 
       fastfetch keepassxc kdePackages.dolphin filezilla tmux fzf emacs pkg-config unzip vscode gcc
-      libtool 
+      libtool appimage-run gtk4 codex jetbrains.idea obs-studio python3 jq mpv neovim fd
     ];
 
     programs.steam.enable = true;

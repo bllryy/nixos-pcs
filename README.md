@@ -20,7 +20,8 @@ The script generates `modules/hosts/<host>/hardware-configuration.nix` on first 
 ```
 modules/
   features/
-    common.nix      shared config (user, packages, locale, niri import)
+    common.nix      shared config (user, packages, locale, desktop imports)
+    kde.nix         KDE Plasma + SDDM
     niri.nix        niri + sddm + pipewire + portals
     framework.nix   laptop: fwupd, fprintd, power-profiles
     desktop.nix     desktop-specific

@@ -10,6 +10,7 @@
       systems = [ "x86_64-linux" ];
       imports = [
         ./modules/features/common.nix
+        ./modules/features/kde.nix
         ./modules/features/niri.nix
         ./modules/features/framework.nix
         ./modules/features/desktop.nix
