@@ -6,7 +6,7 @@
       enable = true;
       wayland.enable = true;
     };
-    services.displayManager.defaultSession = "niri"; 
+    services.displayManager.defaultSession = "niri";
 
     xdg.portal = {
       enable = true;
