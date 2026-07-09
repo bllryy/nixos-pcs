@@ -18,6 +18,23 @@
         "type": "github"
       }
     },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783550008,
+        "narHash": "sha256-qbbZUk9IG9dLNwCPwdPBs6I5clxwugRpP+1YU+GPK20=",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/home-manager/archive/refs/heads/master.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/nix-community/home-manager/archive/refs/heads/master.tar.gz"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -140,6 +157,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "home-manager": "home-manager",
         "niri": "niri",
         "nixpkgs": "nixpkgs_2"
       }

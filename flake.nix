@@ -3,6 +3,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:sodiboo/niri-flake";
+    home-manager = {
+      url = "https://github.com/nix-community/home-manager/archive/refs/heads/master.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ flake-parts, ... }:
@@ -14,9 +18,8 @@
         ./modules/features/niri.nix
         ./modules/features/framework.nix
         ./modules/features/desktop.nix
+        ./modules/features/home.nix
         ./modules/features/configurations.nix
-        ./modules/features/packages.nix
-        ./modules/features/emacs.nix
       ];
     };
 }

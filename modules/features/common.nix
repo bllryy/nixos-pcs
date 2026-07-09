@@ -27,12 +27,15 @@
     fonts.packages = with pkgs; [ nerd-fonts.iosevka ];
 
     environment.systemPackages = with pkgs; [
-      git vim wget curl
-      firefox kitty
-      brightnessctl playerctl alacritty vesktop
-      tree go signal-desktop pavucontrol btop claude-code nodejs cmake ungoogled-chromium tree prismlauncher 
-      fastfetch keepassxc kdePackages.dolphin filezilla tmux fzf emacs pkg-config unzip vscode gcc
-      libtool appimage-run gtk4 codex jetbrains.idea obs-studio python3 jq mpv neovim fd
+      git vim neovim wget curl
+      firefox kitty alacritty
+      brightnessctl playerctl vesktop signal-desktop
+      tree fd fzf tmux jq unzip btop fastfetch mpv
+      go nodejs python3 gcc cmake pkg-config libtool gtk4
+      claude-code codex vscode jetbrains.idea
+      keepassxc kdePackages.dolphin filezilla obs-studio
+      pavucontrol ungoogled-chromium prismlauncher
+      appimage-run
     ];
 
     programs.steam.enable = true;

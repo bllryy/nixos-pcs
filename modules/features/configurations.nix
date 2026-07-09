@@ -6,9 +6,8 @@
       modules = [
         inputs.niri.nixosModules.niri
         self.nixosModules.common
-        self.nixosModules.packages
+        self.nixosModules.home
         self.nixosModules.desktop
-        self.nixosModules.emacs
         ../hosts/desktop/hardware-configuration.nix
       ];
     };
@@ -18,8 +17,8 @@
       modules = [
         inputs.niri.nixosModules.niri
         self.nixosModules.common
+        self.nixosModules.home
         self.nixosModules.framework
-        self.nixosModules.emacs
         ../hosts/framework/hardware-configuration.nix
       ];
     };

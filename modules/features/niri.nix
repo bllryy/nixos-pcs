@@ -30,10 +30,7 @@
       wireplumber.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [
-      waybar fuzzel swaybg swaylock mako
-      wl-clipboard grim slurp
-      xwayland-satellite
-    ];
+    # niri's desktop shell (waybar, fuzzel, mako, swaylock, swayosd, wallpaper,
+    # screenshots, clipboard) is configured per-user via home-manager (see ../../home).
   };
 }
