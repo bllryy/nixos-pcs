@@ -34,12 +34,16 @@
       go nodejs python3 gcc cmake pkg-config libtool gtk4
       claude-code codex vscode jetbrains.idea
       keepassxc kdePackages.dolphin filezilla obs-studio
-      pavucontrol ungoogled-chromium prismlauncher
-      appimage-run
+      pavucontrol ungoogled-chromium
+      (prismlauncher.override { additionalLibs = [ libxtst ]; })
+      appimage-run hyfetch rustdesk libinput waywall gnumake
     ];
 
+    programs.nix-ld.enable = true;
     programs.steam.enable = true;
     services.flatpak.enable = true;
+    services.tailscale.enable = true;
+    services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
     system.stateVersion = "26.05";
   };

@@ -98,6 +98,14 @@ in
       DISPLAY = ":0";
     };
 
+    outputs."DP-4" = {
+      mode = {
+        width = 1920;
+        height = 1080;
+        refresh = 239.964;
+      };
+    };
+
     prefer-no-csd = true;
 
     layout = {
